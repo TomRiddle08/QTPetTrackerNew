@@ -1,15 +1,21 @@
 #include <QtTest>
-#include "../mainwindow.h"
 #include "../event.h"
 #include "../pet.h"
 
-class TestAll : public QObject {
+class TestBasic : public QObject
+{
     Q_OBJECT
 private slots:
-    void testExample() {
-        QVERIFY(1 + 1 == 2);
+    void testEventCreation() {
+        Event e("2025-06-15", "Vaccine", "Rabies");
+        QCOMPARE(e.getType(), QString("Vaccine"));
+    }
+    
+    void testPetCreation() {
+        Pet p("Fluffy", "Cat", 2);
+        QCOMPARE(p.getSpecies(), QString("Cat"));
     }
 };
 
-QTEST_APPLESS_MAIN(TestAll)
+QTEST_APPLESS_MAIN(TestBasic)
 #include "test_main.moc"
