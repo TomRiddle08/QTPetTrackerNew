@@ -14,11 +14,7 @@ jobs:
       - name: Install Qt
         run: |
           sudo apt-get update
-          sudo apt-get install -y \
-            qt6-base-dev \
-            qt6-tools-dev \
-            qt6-declarative-dev \
-            qt6-l10n-tools
+          sudo apt-get install -y qt6-base-dev qt6-tools-dev qt6-declarative-dev
           echo "Qt6_DIR=/usr/lib/x86_64-linux-gnu/cmake/Qt6" >> $GITHUB_ENV
 
       - name: Install dependencies
@@ -29,8 +25,7 @@ jobs:
             ninja-build \
             libgl1-mesa-dev \
             lcov \
-            gcovr \
-            libxkbcommon-dev
+            gcovr
 
       - name: Configure project
         run: |
@@ -51,29 +46,21 @@ jobs:
       - name: Generate coverage
         run: |
           cd build
-          # Сбор данных покрытия с игнорированием предупреждений
           lcov --capture --directory . --output-file coverage.info --ignore-errors unused
-          # Фильтрация системных файлов
           lcov --remove coverage.info \
             '/usr/*' \
             '*/tests/*' \
-            '*/moc_*.cpp' \
-            '*/qrc_*.cpp' \
-            '*/Qt6*' \
+            '*/tests_autogen/*' \
+            '*/CMakeFiles/*' \
             '*.moc' \
+            '*.qrc' \
             --output-file coverage.filtered.info
-          # Генерация отчетов
           genhtml coverage.filtered.info \
             --output-directory coverage-report \
             --ignore-errors source \
             --demangle-cpp \
             --legend
-          # XML отчет для Codecov
-          gcovr --exclude-unreachable-branches \
-            --exclude-throw-branches \
-            --xml-pretty \
-            --print-summary \
-            --output=coverage.xml
+          gcovr --xml-pretty --output=coverage.xml --root=${GITHUB_WORKSPACE}
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
@@ -82,12 +69,3 @@ jobs:
           path: |
             build/coverage-report/**
             build/coverage.xml
-          retention-days: 5
-
-      - name: Upload coverage to Codecov (optional)
-        if: success()
-        uses: codecov/codecov-action@v3
-        with:
-          file: build/coverage.xml
-          flags: unittests
-          name: codecov-upload
