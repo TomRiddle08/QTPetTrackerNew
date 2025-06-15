@@ -46,21 +46,20 @@ jobs:
       - name: Generate coverage
         run: |
           cd build
-          lcov --capture --directory . --output-file coverage.info --ignore-errors unused
-          lcov --remove coverage.info \
-            '/usr/*' \
-            '*/tests/*' \
-            '*/tests_autogen/*' \
-            '*/CMakeFiles/*' \
-            '*.moc' \
-            '*.qrc' \
-            --output-file coverage.filtered.info
+          lcov --capture --directory . --output-file coverage.raw.info --ignore-errors unused
+          find ${GITHUB_WORKSPACE} -name '*.cpp' -o -name '*.h' > source_files.txt
+          lcov --extract coverage.raw.info $(cat source_files.txt | tr '\n' ' ') \
+            --output-file coverage.filtered.info \
+            --ignore-errors unused
           genhtml coverage.filtered.info \
             --output-directory coverage-report \
             --ignore-errors source \
             --demangle-cpp \
             --legend
-          gcovr --xml-pretty --output=coverage.xml --root=${GITHUB_WORKSPACE}
+          gcovr --xml-pretty --output=coverage.xml --root=${GITHUB_WORKSPACE} \
+            --exclude='.*/tests/.*' \
+            --exclude='.*/build/.*'
+        continue-on-error: true
 
       - name: Upload coverage report
         uses: actions/upload-artifact@v4
