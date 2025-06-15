@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-7d67fe579dfad00854a6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "kursovaya11",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "kursovaya11::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kursovaya11-Debug-2c777aa50eb8f3d9ce13.json",
+					"name" : "kursovaya11",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kursovaya11_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kursovaya11_autogen-Debug-aed1e582dd71bd2eb7e9.json",
+					"name" : "kursovaya11_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "kursovaya11_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-kursovaya11_autogen_timestamp_deps-Debug-cc79a5b348ac9fe79b7c.json",
+					"name" : "kursovaya11_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/user/kursovaya11/build/Desktop-Debug",
+		"source" : "/home/user/kursovaya11"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

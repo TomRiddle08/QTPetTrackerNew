@@ -1,0 +1,176 @@
+/* style.qss */
+
+/* === Шрифты для всего приложения === */
+* {
+    font-family: "Segoe UI", sans-serif;
+    font-size: 12pt;
+}
+
+/* === Общий фон приложения === */
+QMainWindow {
+    background-color: #fdf6e3; /* Теплый песочный */
+}
+
+/* === Кнопки (все) === */
+QPushButton {
+    background-color: #d3b774; /* Песочный фон */
+    color: black;
+    padding: 8px 16px;
+    font-weight: bold;
+    border-radius: 6px;
+    min-width: 80px;
+    text-align: center;
+    border: none;
+    outline: 0;
+}
+
+QPushButton:hover {
+    background-color: #c9a96a; /* При наведении */
+}
+
+QPushButton:pressed {
+    background-color: #b5965f; /* При нажатии */
+}
+
+/* === Таблицы === */
+QTableWidget {
+    background-color: #fffde7;
+    border: 1px solid #ccc;
+    gridline-color: #dcdcdc;
+    alternate-background-color: #f8f0dc;
+    selection-background-color: #d3b774;
+}
+
+QHeaderView::section {
+    background-color: #e0dcbf;
+    font-weight: bold;
+    padding: 6px;
+    border: 1px solid #a09070;
+    color: black;
+}
+
+QTableWidget::item {
+    padding: 4px;
+    border: 1px solid #eee;
+    color: #333;
+}
+
+/* === Разные цвета по типам событий === */
+QTableWidget::item[type="feeding"] {
+    background-color: #ffe0b2; /* Кормление — оранжевый */
+}
+
+QTableWidget::item[type="vaccination"] {
+    background-color: #ffd5d5; /* Прививка — розовый */
+}
+
+QTableWidget::item[type="grooming"] {
+    background-color: #e0ffe0; /* Груминг — светло-зелёный */
+}
+
+QTableWidget::item[type="walk"] {
+    background-color: #d0f0ff; /* Прогулка — голубой */
+}
+
+QTableWidget::item[type="visit_to_vet"] {
+    background-color: #ffcac8; /* Посещение ветеринара — красный */
+}
+
+QTableWidget::item[type="training"] {
+    background-color: #fffcc0; /* Тренировка — жёлтый */
+}
+
+QTableWidget::item[type="other"] {
+    background-color: #f0f0f0; /* Другое — серый */
+}
+
+/* === Чекбоксы в таблице === */
+QTableWidget::indicator {
+    width: 16px;
+    height: 16px;
+    border: 2px solid #a09070;
+    border-radius: 4px;
+    background-color: white;
+}
+
+QTableWidget::indicator:checked {
+    background-color: #d3b774;
+    border: 2px solid #a09070;
+}
+
+/* === Диалоговые окна === */
+QDialog {
+    background-color: #fdf6e3;
+}
+
+QLineEdit, QSpinBox, QDoubleSpinBox, QDateTimeEdit {
+    background-color: #fffde7;
+    border: 1px solid #a09070;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 12pt;
+}
+
+QComboBox {
+    background-color: #fffde7;
+    border: 1px solid #a09070;
+    padding: 4px;
+    border-radius: 4px;
+    font-size: 12pt;
+}
+
+QComboBox::drop-down {
+    border-left: 1px solid #a09070;
+}
+
+/* === Текст в заголовках и диалогах === */
+QLabel {
+    font-size: 12pt;
+    font-weight: normal;
+    color: #444;
+}
+
+QMessageBox QLabel {
+    font-size: 14pt;
+    color: #333;
+}
+
+/* === Начальная страница (#welcomePage) === */
+#welcomePage {
+    background-color: white;
+    border: 2px solid #d3b774;
+    border-radius: 10px;
+}
+
+#welcomePage QLabel#titleLabel {
+    font-size: 18pt;
+    font-weight: bold;
+    color: #2e2e2e;
+    text-align: center;
+}
+
+#welcomePage QLabel#subtitleLabel {
+    font-size: 11pt;
+    font-style: italic;
+    color: #888;
+    text-align: center;
+}
+
+#welcomePage QPushButton {
+    background-color: #d3b774;
+    color: black;
+    padding: 10px;
+    font-size: 14pt;
+    font-weight: bold;
+    border-radius: 6px;
+    min-width: 180px;
+    margin-left: 50px; /* Сдвигаем кнопку правее от центра */
+}
+
+#welcomePage QPushButton:hover {
+    background-color: #c9a96a;
+}
+
+#welcomePage QPushButton:pressed {
+    background-color: #b5965f;
+}

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>img/pets.png</file>
+        <file>styles.qss</file>
+    </qresource>
+</RCC>

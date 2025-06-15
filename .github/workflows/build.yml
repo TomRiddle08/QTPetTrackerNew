@@ -1,0 +1,62 @@
+name: Qt CI Pipeline
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    - name: Install Qt
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.5.0'
+        modules: 'qtbase qttools qtdeclarative'
+        cached: true
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y \
+          build-essential \
+          cmake \
+          ninja-build \
+          libgl1-mesa-dev \
+          lcov \
+          gcovr
+
+    - name: Configure project
+      run: |
+        mkdir -p build
+        cd build
+        cmake -DCMAKE_PREFIX_PATH=${{ env.Qt6_DIR }} -GNinja ..
+
+    - name: Build project
+      run: |
+        cd build
+        cmake --build . --parallel 4
+
+    - name: Run tests
+      run: |
+        cd build
+        ctest --output-on-failure
+
+    - name: Generate coverage
+      run: |
+        cd build
+        lcov --capture --directory . --output-file coverage.info
+        lcov --remove coverage.info '/usr/*' '/opt/*' '*/tests/*' --output-file coverage.filtered.info
+        genhtml coverage.filtered.info --output-directory coverage-report
+        gcovr --xml-pretty --output=coverage.xml
+
+    - name: Upload coverage report
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-report
+        path: |
+          build/coverage-report/**
+          build/coverage.xml

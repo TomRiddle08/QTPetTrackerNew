@@ -1,0 +1,54 @@
+{
+    "events": [
+        {
+            "dateTime": "2025-06-11T10:08:06",
+            "description": "",
+            "petName": "бобик",
+            "type": 0
+        },
+        {
+            "dateTime": "2025-06-11T11:20:29",
+            "description": "променад",
+            "petName": "мурзик",
+            "type": 3
+        }
+    ],
+    "pets": [
+        {
+            "age": 6,
+            "breed": "овчарка",
+            "color": "темный",
+            "description": "пес",
+            "name": "бобик",
+            "owner": "гелич",
+            "weight": 6.1
+        },
+        {
+            "age": 3,
+            "breed": "dgfgd",
+            "color": "dgfgddg",
+            "description": "dgf",
+            "name": "fdf",
+            "owner": "fgd",
+            "weight": 3.1
+        },
+        {
+            "age": 1,
+            "breed": "dddddd",
+            "color": "fff",
+            "description": "ffff",
+            "name": "aaaa",
+            "owner": "dssssssss",
+            "weight": 2.1
+        },
+        {
+            "age": 3,
+            "breed": "алабай",
+            "color": "",
+            "description": "",
+            "name": "мурзик",
+            "owner": "фёдоров",
+            "weight": 4
+        }
+    ]
+}

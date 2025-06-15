@@ -1,0 +1,9 @@
+/home/user/kursovaya11/build/Desktop-Debug/CMakeFiles/kursovaya11.dir
+/home/user/kursovaya11/build/Desktop-Debug/CMakeFiles/edit_cache.dir
+/home/user/kursovaya11/build/Desktop-Debug/CMakeFiles/rebuild_cache.dir
+/home/user/kursovaya11/build/Desktop-Debug/CMakeFiles/list_install_components.dir
+/home/user/kursovaya11/build/Desktop-Debug/CMakeFiles/install.dir
+/home/user/kursovaya11/build/Desktop-Debug/CMakeFiles/install/local.dir
+/home/user/kursovaya11/build/Desktop-Debug/CMakeFiles/install/strip.dir
+/home/user/kursovaya11/build/Desktop-Debug/CMakeFiles/kursovaya11_autogen_timestamp_deps.dir
+/home/user/kursovaya11/build/Desktop-Debug/CMakeFiles/kursovaya11_autogen.dir
